@@ -13,7 +13,17 @@ for(var i =0; i <numOfButtons; i++ ){
 
     document.querySelectorAll(".drum")[i].addEventListener("click", function(){
 var buttonInnerHTML = this.innerHTML;
-switch (buttonInnerHTML) {
+makeSound(buttonInnerHTML);
+
+});
+
+}
+document.addEventListener("keydown", function(event){
+    makeSound(event.key)
+});
+
+function makeSound(key){
+switch (key) {
         case "w":
         var tom1 = new Audio("sounds/tom-1.mp3");
         tom1.play();
@@ -51,6 +61,5 @@ switch (buttonInnerHTML) {
 
     default: console.log(buttonInnerHTML);
         break;
-}});
-
+}
 }
